@@ -43,7 +43,7 @@ public class AuditController {
     public void updateFrodo() {
         logger.info("updating Frodo ...");
 
-        Person frodo = personRepository.findOne(0);
+        Person frodo = personRepository.findById(0).orElse(null);
         logger.info(frodo.toString());
 
         frodo.setSalary(1234);
@@ -112,8 +112,8 @@ public class AuditController {
 
     @RequestMapping("/hierarchy/{left}/diff/{right}")
     public String getPersonSnapshots(@PathVariable String left, @PathVariable String right) {
-        Hierarchy l = hierarchyRepository.findOne(left);
-        Hierarchy p = hierarchyRepository.findOne(right);
+        Hierarchy l = hierarchyRepository.findById(left).orElse(null);
+        Hierarchy p = hierarchyRepository.findById(right).orElse(null);
 
 
         Diff diff = javers.compare(l, p);

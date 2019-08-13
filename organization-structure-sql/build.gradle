@@ -1,15 +1,19 @@
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile project(':organization-structure-ui')
-    compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
-    compile "org.javers:javers-spring-boot-starter-sql:$javersVersion"
+    implementation project(':organization-structure-ui')
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+    implementation "org.javers:javers-spring-boot-starter-sql:$javersVersion"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.9"
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.9.9"
 
-    compile 'com.h2database:h2:1.4.191'
- //   compile 'postgresql:postgresql:9.1-901-1.jdbc4'
+//    implementation 'com.h2database:h2:1.4.191'
+    implementation "mysql:mysql-connector-java:8.0.16"
+ //   implementation 'postgresql:postgresql:9.1-901-1.jdbc4'
 
-    testCompile 'com.squareup.okhttp3:okhttp:3.1.2'
+    testImplementation 'com.squareup.okhttp3:okhttp:3.1.2'
 
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion
-    testCompile "org.spockframework:spock-spring:$spockVersion"
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion
+    testImplementation "org.spockframework:spock-spring:$spockVersion"
 }

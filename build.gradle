@@ -22,12 +22,12 @@ subprojects {
     apply plugin: 'groovy'
 
     dependencies {
-        testCompile "org.spockframework:spock-core:$spockVersion"
-        testCompile 'cglib:cglib-nodep:3.2.0'
-        testCompile 'org.codehaus.groovy:groovy-all:2.4.1'
+        testImplementation "org.spockframework:spock-core:$spockVersion"
+        testImplementation 'cglib:cglib-nodep:3.2.0'
+        testImplementation 'org.codehaus.groovy:groovy-all:2.4.1'
     }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.1'
+wrapper {
+    gradleVersion = "5.4.1"
 }

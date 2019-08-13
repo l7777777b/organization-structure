@@ -9,6 +9,6 @@ buildscript {
 }
 
 dependencies {
-    compile "org.javers:javers-spring:$javersVersion"
-    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    implementation "org.javers:javers-spring:$javersVersion"
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
 }
